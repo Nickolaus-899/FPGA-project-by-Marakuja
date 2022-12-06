@@ -1,0 +1,192 @@
+module marakuja (
+  input launch,
+  input [1:0] level,
+  
+  input [2:0] switch,
+  
+  
+  output reg original1,
+  output reg original2,
+  output reg original3,
+  output reg original4,
+  output reg original5,
+  output reg original6,
+  output reg original7,
+  
+  output reg copy1,
+  output reg copy2,
+  output reg copy3,
+  output reg copy4,
+  output reg copy5,
+  output reg copy6,
+  output reg copy7
+  
+);
+
+
+always @ (launch or level) begin
+  case (level)
+    2'b00: begin
+      original1 = 1;
+      original2 = 0;
+      original3 = 0;
+      original4 = 0;
+      original5 = 1;
+      original6 = 0;
+      original7 = 1;
+    end
+    2'b01: begin
+      original1 = 0;
+      original2 = 1;
+      original3 = 0;
+      original4 = 0;
+      original5 = 0;
+      original6 = 1;
+      original7 = 1;
+    end
+    2'b10: begin
+      original1 = 0;
+      original2 = 0;
+      original3 = 1;
+      original4 = 1;
+      original5 = 1;
+      original6 = 0;
+      original7 = 0;
+    end
+    2'b11: begin
+      original1 = 0;
+      original2 = 1;
+      original3 = 1;
+      original4 = 1;
+      original5 = 0;
+      original6 = 1;
+      original7 = 0;
+    end
+  endcase
+      case(switch)
+        3'b000: begin
+        if (launch == 0) begin
+          copy1 = 1;
+          copy2 = 1;
+          copy3 = 1;
+          copy4 = 1;
+          copy5 = 1;
+          copy6 = 1;
+          copy7 = 1;
+          end
+        end
+        3'b001: begin
+        if (launch == 0) begin
+          if (original1 == 0) begin
+            copy1 = 0;
+          end
+          else begin
+            copy1 = 1;
+            copy2 = 1;
+            copy3 = 1;
+            copy4 = 1;
+            copy5 = 1;
+            copy6 = 1;
+            copy7 = 1;
+          end
+          end
+        end
+        3'b010: begin
+        if (launch == 0) begin
+          if (original2 == 0) begin
+            copy2 = 0;
+          end
+          else begin
+            copy1 = 1;
+            copy2 = 1;
+            copy3 = 1;
+            copy4 = 1;
+            copy5 = 1;
+            copy6 = 1;
+            copy7 = 1;
+          end
+          end
+        end
+        3'b011: begin
+        if (launch == 0) begin
+          if (original3 == 0) begin
+            copy3 = 0;
+          end
+          else begin
+            copy1 = 1;
+            copy2 = 1;
+            copy3 = 1;
+            copy4 = 1;
+            copy5 = 1;
+            copy6 = 1;
+            copy7 = 1;
+          end
+          end
+        end
+        3'b100: begin
+        if (launch == 0) begin
+          if (original4 == 0) begin
+            copy4 = 0;
+          end
+          else begin
+            copy1 = 1;
+            copy2 = 1;
+            copy3 = 1;
+            copy4 = 1;
+            copy5 = 1;
+            copy6 = 1;
+            copy7 = 1;
+          end
+          end
+        end
+        3'b101: begin
+        if (launch == 0) begin
+          if (original5 == 0) begin
+            copy5 = 0;
+          end
+          else begin
+            copy1 = 1;
+            copy2 = 1;
+            copy3 = 1;
+            copy4 = 1;
+            copy5 = 1;
+            copy6 = 1;
+            copy7 = 1;
+          end
+          end
+        end
+        3'b110: begin
+        if (launch == 0) begin
+          if (original6 == 0) begin
+            copy6 = 0;
+          end
+          else begin
+            copy1 = 1;
+            copy2 = 1;
+            copy3 = 1;
+            copy4 = 1;
+            copy5 = 1;
+            copy6 = 1;
+            copy7 = 1;
+          end
+          end
+        end
+        3'b111: begin
+        if (launch == 0) begin
+          if (original7 == 0) begin
+            copy7 = 0;
+          end
+          else begin
+            copy1 = 1;
+            copy2 = 1;
+            copy3 = 1;
+            copy4 = 1;
+            copy5 = 1;
+            copy6 = 1;
+            copy7 = 1;
+          end
+          end
+        end
+        endcase
+end
+endmodule
